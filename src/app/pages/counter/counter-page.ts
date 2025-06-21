@@ -16,13 +16,14 @@ export class CounterPageComponent {
     counter = 10;
     counterSignal = signal(10); //Señal en angular (signal crea una variable reactiva, cuando la señal cambia actualiza el HTML que lo usa)
 
+    /*
     constructor() {
         setInterval(() => {
             this.counterSignal.update((prev) => prev + 1 )
             this.counter += 1
             console.log("tick")
         }, 1000)
-    }
+    }*/
 
     increaseBy(value: number) {
         this.counter += value;
