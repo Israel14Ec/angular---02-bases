@@ -1,7 +1,7 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CharacterListComponent } from "../../components/dragonball/character-list/character-list.component";
-import { Character } from '../../../intefaces/character.interface';
 import { DragonballCharacterAdd } from "../../components/dragonball/dragonball-character-add/dragonball-character-add";
+import { DragonBallService } from '../../services/dragonball.service';
 
 @Component({
   templateUrl: './dragonball-super-page.html',
@@ -11,16 +11,16 @@ import { DragonballCharacterAdd } from "../../components/dragonball/dragonball-c
 
 export class DragonballSuperPageComponent {  
 
-  name = signal("")
-  power = signal(0)
+  //Inyecto el servicio - Es la forma antigua
+  /*
+    constructor(
+      public dragonballService : DragonBallService
+    ){}
+  */
 
-  characters = signal<Character[]>([]);
-
-  actualLenght = computed( () => this.characters().length)
-
-
-  addCharacter(character : Character) {
-    this.characters.update(list => [...list, character])
-  }
+  //Nueva inyección de dependencias
+  public dragonballservice = inject(DragonBallService);
+  
+  
 
 }

@@ -6,15 +6,15 @@
       con (newCharacter)="$event": event es el valor emitido por el componente hijo
     -->
     <app-dragonball-character-add 
-      [actualLenght]="actualLenght()"
-      (newCharacter)="addCharacter($event)"
+      [actualLenght]="dragonballservice.actualLenght()"
+      (newCharacter)="dragonballservice.addCharacter($event)"
     />
   </div>
 
   <div class="col-12 col-sm-6">
      <dragonball-character-list 
         listName="Listado de personajes"
-        [characters]="characters()"
+        [characters]="dragonballservice.characters()"
       
       />
   </div>
